@@ -1,0 +1,112 @@
+.page {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-color: #000000;
+}
+
+.title-cntr2 {
+  position: absolute;
+  top: 5vh;
+  left: 2.5vh;
+  text-align: left;
+}
+
+.title2 {
+  font-size: 3rem;
+  padding: 0;
+  border: none;
+  background: linear-gradient(to right, rgb(24, 161, 224), rgb(77, 104, 224));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: "Poppins";
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+button {
+    margin: 3vw;
+    padding: 12px 40px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: "Poppins";
+    transition: all 0.2s ease-in-out;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.button1 {
+    background-color: #4682b4;
+    box-shadow: 0 5px #31638a;
+    animation-delay: 0.5s;
+}
+
+.button1:hover {
+    background-color: #5a9bd4;
+    font-weight: bolder;
+    box-shadow: 0 7px #31638a;
+    transform: translateY(-2px);
+}
+
+.button1:active {
+    background-color: #31638a;
+    box-shadow: 0 2px #204c66;
+    transform: translateY(1px);
+}
+
+.button2 {
+    background-color: #5bafd8;
+    box-shadow: 0 5px #3a7386;
+    animation-delay: 1s;
+}
+
+.button2:hover {
+    background-color: #63c0df;
+    font-weight: bolder;
+    box-shadow: 0 7px #5199ba;
+    transform: translateY(-2px);
+}
+
+.button2:active {
+    background-color: #8db3c4;
+    box-shadow: 0 2px #6a90a0;
+    transform: translateY(1px);
+}
+
+.button3 {
+    background-color: #007c7f;
+    box-shadow: 0 5px #005f62;
+    animation-delay: 1.5s;
+}
+
+.button3:hover {
+    background-color: #00a3a6;
+    font-weight: bolder;
+    box-shadow: 0 7px #005f62;
+    transform: translateY(-2px);
+}
+
+.button3:active {
+    background-color: #005f62;
+    box-shadow: 0 2px #004445;
+    transform: translateY(1px);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -24,6 +24,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <title>TideScope</title>
+        <link
+          href="https://fonts.cdnfonts.com/css/league-spartan"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Poppins"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css?family=Montserrat"
+          rel="stylesheet"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

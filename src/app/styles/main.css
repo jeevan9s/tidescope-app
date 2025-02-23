@@ -1,0 +1,94 @@
+.page {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-color: #000000;
+}
+
+.title-cntr {
+  position: absolute;
+  top: 30vh;
+  text-align: center;
+}
+
+.title {
+  font-size: 7rem;
+  padding: 0;
+  border: none;
+  background: linear-gradient(to right, rgb(24, 161, 224), rgb(77, 104, 224));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: "Poppins";
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  font-family: "Montserrat";
+  color: #a6c8ff;
+  margin-top: 1rem;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+p {
+  position: absolute;
+  top: 60vh;
+  font-size: 1rem;
+  font-family: "Montserrat";
+  color: #b0b0b0;
+  max-width: 70%;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 1.4s ease-out forwards;
+}
+
+.btn-cntr {
+  position: absolute;
+  top: 75vh;
+}
+
+button {
+  padding: 12px 40px;
+  background-color: #0f66d0;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Poppins";
+  box-shadow: 0 5px #0b4aa0;
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #2984f3;
+  font-weight: bolder;
+  box-shadow: 0 7px #0b4aa0;
+  transform: translateY(-2px);
+}
+
+button:active {
+  background-color: #0b4aa0;
+  box-shadow: 0 2px #072f68;
+  transform: translateY(1px);
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
