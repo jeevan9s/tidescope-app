@@ -99,8 +99,6 @@ button {
 }
 
 .button3:active {
-    background-color: #005f62;
-    box-shadow: 0 2px #004445;
     transform: translateY(1px);
 }
 

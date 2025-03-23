@@ -11,9 +11,16 @@ export default function Dashboard() {
       </div>
 
       <div className="btns-cntr">
+
+        <Link href = "/prediction">
         <button className="button1">Prediction</button>
+        </Link>
+        <Link href = "/histclassification">
         <button className="button2">Classification</button>
+        </Link>
+        <Link href = "/liveclassification">
         <button className="button3">Live Classification</button>
+        </Link>
       </div>
     </div>
   );

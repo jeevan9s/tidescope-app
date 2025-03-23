@@ -29,8 +29,15 @@ export default function RootLayout({
         <link
           href="https://fonts.cdnfonts.com/css/league-spartan"
           rel="stylesheet"
+          
         />
+
+        <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'/>
+        <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'/>
+
         <link
+
+        
           href="https://fonts.googleapis.com/css?family=Poppins"
           rel="stylesheet"
         />
