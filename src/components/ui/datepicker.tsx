@@ -7,6 +7,7 @@ import { Calendar as CalendarIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import "@/app/styles/prediction.css";
 
 interface DatepickerProps {
   onDateChange: (yearMonth: string) => void; // callback to pass the selected year and month to the parent
@@ -33,7 +34,7 @@ export default function Datepicker({ onDateChange }: DatepickerProps) {
         <Button
           variant={"outline"}
           className={cn(
-            "w-[170px] bg-zinc-300 text-gray-900 font-md text-sm justify-start text-left placeholder:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors hover:bg-zinc-400",
+            "w-[170px] bg-zinc-300 text-gray-900 font-md text-sm justify-start text-left placeholder:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring transition-colors hover-animate hover:bg-zinc-400",
             !date && "text-muted-foreground"
           )}
         >

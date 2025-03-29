@@ -27,7 +27,7 @@ export default function Main() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link href="/prediction">
-                <Button id = "button1" className="w-80 h-11 bg-zinc-100 rounded-xl font-thin text-black transition hover:bg-sky-700 hover:font-bold hover:text-white">
+                <Button id = "button1" className="w-80 h-11 bg-zinc-100 rounded-xl font-thin text-black transition hover-animate">
                   Prediction Model
                 </Button>
               </Link>
@@ -41,7 +41,7 @@ export default function Main() {
           <Tooltip>
             <TooltipTrigger asChild>
               <Link href="/liveclassification">
-                <Button id = "button3" className="w-80 h-11 bg-zinc-100 rounded-xl font-thin text-black transition transform hover:scale-2 hover:font-bold hover:bg-sky-700 hover:text-white">
+                <Button id = "button3" className="w-80 h-11 bg-zinc-100 rounded-xl font-thin text-black transition hover-animate">
                   Live-Classification Model
                 </Button>
               </Link>

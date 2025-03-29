@@ -2,6 +2,7 @@
 # Scaling, splitting, training & evaluation
 
 import pandas as pd 
+from sklearn.metrics import roc_curve, auc
 from sklearn.linear_model import LogisticRegression
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
@@ -12,17 +13,28 @@ from sklearn.preprocessing import StandardScaler
 import xgboost as xgb
 from sklearn.metrics import confusion_matrix, accuracy_score
 import joblib
+import matplotlib.pyplot as plt
+import seaborn as sns
+import numpy as np
+
 
 df = pd.read_csv("./data/proc-eq-data.csv")
 # print(df.head())
 
 # scale
 sc = StandardScaler()
-X = df.drop('tsunami', axis =1)
+X = df.drop(['tsunami', 'magType', 'gap', 'nst'], axis =1)
 y = df['tsunami']
 X_scaled = sc.fit_transform(X)
 X = pd.DataFrame(X_scaled, columns=X.columns)
 # print(X.head())
+
+joblib.dump(sc, './models/scaler.pkl')
+print("Feature Order: ", X.columns.tolist())
+print("Features used for training:", X.columns.tolist())
+
+
+
 
 # split
 X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=42)
@@ -89,12 +101,17 @@ tuned_model = xgb.XGBClassifier(**hy_params)
 tuned_model.fit(X_train,y_train)
 preds = tuned_model.predict(X_test)
 print("classification report: ", classification_report(y_test, preds))
+cm = confusion_matrix(y_test, preds)
+print("Confusion matrix: ", cm)
 print("accuracy:", accuracy_score(y_test, preds))
-prob = tuned_model.predict_proba(X_test)
+
+
+# prob = tuned_model.predict_proba(X_test)
+# print(prob)
+
+# print("Feature Importances:")
+# for feature, importance in zip(X.columns, tuned_model.feature_importances_):
+#     print(f"{feature * 100}: {importance}")
+
 # print(f"Probability of Tsunami Occurring: {prob[0][1]}") 
-
 # joblib.dump(tuned_model, './models/tsunami_prediction_model.pkl')
-
-
-
-

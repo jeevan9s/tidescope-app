@@ -95,3 +95,17 @@ Button {
   transform: translateY(1px);
 }
 
+.hover-animate {
+  transition: background-color 0.3s ease, transform 0.2s ease, font-weight 0.2s ease;
+}
+
+.hover-animate:hover {
+  background-color: #0369a1; /* Darker blue on hover */
+  transform: scale(1.05) !important; /* Slight enlargement for hover effect */
+  font-weight: bold; /* Bold text for emphasis */
+  color: white; /* Change text color to white */
+}
+
+.hover-animate:active {
+  transform: scale(0.98); /* Slight shrink effect on click for tactile feel */
+}

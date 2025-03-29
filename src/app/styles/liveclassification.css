@@ -1,4 +1,4 @@
-.page {
+#page {
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -11,16 +11,38 @@
     background-color: #000000;
   }
   
-  .title-cntr2 {
+  .title-cntr3 {
     position: absolute;
     top: 5vh;
     left: 2.5vh;
     text-align: left;
   }
   
-  #title2 {
+  #title3 {
     font-size: 2.5rem;
     padding: 0;
     border: none;
     font-family: "DM Sans";
   }
+
+  #btn-container {
+    z-index: 1;
+  }
+
+  Button {
+    z-index: 1;
+  }
+
+  .hover-animate {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .hover-animate:hover {
+    background-color: #0369a1; /* Darker blue for hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+  }
+  
+  .hover-animate:active {
+    transform: scale(0.98); /* Shrink slightly on click for feedback */
+  }
+  

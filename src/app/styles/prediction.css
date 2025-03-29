@@ -48,6 +48,36 @@ h1 {
   }
 }
 
+.hover-animate {
+  transition: 0.3s ease, transform 0.2s ease, font-weight 0.2s ease;
+}
+
+.hover-animate:hover {
+  transform: scale(1.05); /* Slight enlargement for hover effect */ /* Bold text for emphasis */
+}
+
+.hover-animate:active {
+  transform: scale(0.98); /* Slight shrink effect on click for tactile feel */
+}
+
+.text-gray-800-important {
+  color: rgb(31 41 55) !important; /* gray-800 */
+}
+
+.fixed {
+  z-index: 1;
+}
+
+.fixed > h2,p,strong {
+  font-family: 'DM Sans';
+  z-index: 1;
+}
+
+
+
+
+
+
 
 
 
