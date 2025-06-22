@@ -1,36 +1,30 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TideScope
 
-## Getting Started
+AI-Powered Tsunami Prediction & Classification. 
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Predicts tsunami occurrence from earthquake data using ensemble models (Random Forest, XGBoost)
+- Classifies tsunami severity in real time using ESP32 with ultrasonic and accelerometer sensors
+- Web interface built with React (frontend) and Flask (backend)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Machine Learning
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Algorithms:** Random Forest, XGBoost for tsunami occurrence prediction; Random Forest classification for sensor-based severity detection  
+- **Input:** Magnitude, depth, location, seismic intensity, sensor data (ultrasonic, accelerometer)  
+- **Output:**  
+  - Binary tsunami prediction (0 or 1)  
+  - Severity classification (scale 0–4) based on sensor input  
+- **Accuracy:** Up to 96%  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Hardware
 
-## Learn More
+- **Microcontroller:** ESP32  
+- **Sensors:** Ultrasonic, MPU6050 accelerometer  
+- **Function:** Classifies simulated tsunami severity (scale 0–4)  
 
-To learn more about Next.js, take a look at the following resources:
+## Web Interface
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- React frontend for data input and visualization  
+- Flask backend for prediction API and sensor data handling  
+- Features: Live classification, input form
