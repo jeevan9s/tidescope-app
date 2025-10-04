@@ -1,51 +1,22 @@
 "use client";
-import React, { useState } from "react";
-import { Spinner } from "@/components/spinner";
+import React from "react";
 import { Button } from "@/components/ui/button";
 import "../styles/liveclassification.css";
 import Link from "next/link";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { useRecording } from "./hooks/useRecording";
+import { RecordingButton } from "./components/RecordingButton";
+import { ClassificationResult } from "./components/ClassificationResult";
 
 export default function LiveClassificationPage() {
-  const [isRecording, setIsRecording] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [showSubmit, setShowSubmit] = useState(false);
-  const [recordingCount, setRecordingCount] = useState(0);
-  const [classification, setClassification] = useState("");
-
-  const handleButtonClick = async () => {
-    setIsLoading(true);
-    try {
-      if (isRecording) {
-        // Stopping recording
-        setShowSubmit(true);
-      } else {
-        // Starting new recording, reset previous state
-        setShowSubmit(false);
-        setClassification("");
-      }
-      setIsRecording((prev) => !prev);
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred. Please try again.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleSubmit = () => {
-    if (recordingCount === 0) {
-      setClassification("No Tsunami Event Detected");
-    } else if (recordingCount === 1) {
-      setClassification("Tsunami Event Detected | High Severity");
-    }
-    setRecordingCount(recordingCount + 1);
-  };
+  const {
+    isRecording,
+    isLoading,
+    showSubmit,
+    classification,
+    toggleRecording,
+    handleSubmit,
+  } = useRecording();
 
   return (
     <TooltipProvider>
@@ -60,26 +31,11 @@ export default function LiveClassificationPage() {
           </Link>
         </div>
 
-        <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              className="bg-sky-700 flex items-center justify-center hover-animate"
-              onClick={handleButtonClick}
-              disabled={isLoading}
-            >
-              {isRecording ? (
-                <>
-                  <Spinner className="spinner mr-2" /> Stop Recording
-                </>
-              ) : (
-                "Start Recording"
-              )}
-            </Button>
-          </TooltipTrigger>
-          <TooltipContent>
-            <p>Start capturing real-time sensor data for tsunami classification.</p>
-          </TooltipContent>
-        </Tooltip>
+        <RecordingButton
+          isRecording={isRecording}
+          isLoading={isLoading}
+          onToggle={toggleRecording}
+        />
 
         {showSubmit && (
           <Button className="bg-green-600 mt-4" onClick={handleSubmit}>
@@ -87,11 +43,7 @@ export default function LiveClassificationPage() {
           </Button>
         )}
 
-{classification && (
-  <div className="mt-4 text-lg font-bold text-black bg-white p-4 rounded-md shadow-md">
-    Classification Result: <span className="text-blue-600">{classification}</span>
-  </div>
-)}
+        <ClassificationResult classification={classification} />
       </div>
     </TooltipProvider>
   );
