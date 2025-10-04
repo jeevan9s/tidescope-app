@@ -11,7 +11,7 @@ null_percent = round(df.isnull().sum() / df.shape[0] * 100, 2)
 # print(null_percent[null_percent > 0.1])
 
 # alert, location, continent, country have a large amount of null values 
-# alert, continent, country, location are unecessary, ill just use longitude & latitude 
+# alert, continent, country, location are unecessary, just use longitude & latitude 
 
 df.drop(['title', 'continent', 'alert', 'location', 'country'], axis=1, inplace=True)
 
@@ -31,12 +31,10 @@ obj = df.select_dtypes(include=['object'])
 obj.drop('net', axis=1, inplace=True)
 df.drop(['net', 'magType'], axis=1, inplace=True)
 
-# label encoding + merge for magtype 
 le = LabelEncoder()
 obj_encoded = obj.apply(le.fit_transform)
 df = pd.concat([df, obj_encoded], axis=1)
 
-# exp[ort]
 df.to_csv(output, index=False)
 
 
